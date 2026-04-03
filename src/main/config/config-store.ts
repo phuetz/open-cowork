@@ -120,6 +120,18 @@ export interface AppConfig {
 
   // First run flag
   isConfigured: boolean;
+
+  // Code Buddy backend adapter (opt-in, alongside direct provider configs)
+  codebuddy?: {
+    /** Whether the Code Buddy adapter is active */
+    enabled: boolean;
+    /** HTTP endpoint of the Code Buddy server, e.g. "http://localhost:3000" */
+    endpoint: string;
+    /** Optional Bearer token for Code Buddy's JWT auth */
+    apiKey?: string;
+    /** Model override forwarded on every request */
+    model?: string;
+  };
 }
 
 const DEFAULT_CONFIG_SET_ID = 'default';
